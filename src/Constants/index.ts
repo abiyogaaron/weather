@@ -15,8 +15,9 @@ import Mist from '../images/fog.png';
 export const ENV: EnvT = (process.env.REACT_APP_ENV as EnvT) || 'development';
 export const API_KEY = process.env.REACT_APP_API_KEY;
 
-export const IMAGE_URL = 'http://openweathermap.org/img/wn';
-export const BASE_URL = 'http://api.openweathermap.org';
+const PROTOCOL = window.location.protocol;
+export const IMAGE_URL = `${PROTOCOL}//openweathermap.org/img/wn`;
+export const BASE_URL = `${PROTOCOL}//api.openweathermap.org`;
 export const LIMIT_SEARCH = 5;
 export const END_POINTS = {
   SEARCH_CITY: `${BASE_URL}/geo/1.0/direct?q={city}&limit={limit}&appid={apiKey}`,
