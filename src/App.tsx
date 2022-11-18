@@ -1,25 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { lazy, Suspense } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import Loader from './Components/Loader';
+
+import {
+  DivApp,
+} from './style';
+
 import './App.css';
+
+const Home = lazy(() => import('./Modules/Home'));
+const ForecastList = lazy(() => import('./Modules/ForecastList'));
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <DivApp>
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/:lat/:lon' element={<Home />} />
+          <Route path='/:lat/:lon/:date' element={<Home />} />
+          <Route path='/forecast-list/:lat/:lon' element={<ForecastList />} />
+        </Routes>
+      </Suspense>
+    </DivApp>
   );
 }
 
