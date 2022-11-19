@@ -151,6 +151,10 @@ const Home: FC = () => {
   }, [isSearchBoxEmpty, isSearchBoxfocus]);
 
   const handleClickCity = useCallback((item: ISearchData) => {
+    if (latParams && lonParams) {
+      navigator(`/${item.lat}/${item.lon}`);
+    }
+
     batch(() => {
       setIsSearchBoxEmpty(true);
       setIsSearchBoxFocus(false);
@@ -366,7 +370,7 @@ const Home: FC = () => {
     return () => {
       dispatch(resetState());
     };
-  }, [lat, lon]);
+  }, [lat, lon, geoError.isError]);
 
   useEffect(() => {
     interval.current = window.setInterval(() => {

@@ -163,7 +163,7 @@ export const DivWeatherImage = styled.div`
   justify-content: center;
   padding: ${SIZE(6)};
 
-  @media (min-width: ${MOBILE_BREAKPOINT}) {
+  @media (min-width: ${MOBILE_BREAKPOINT}px) {
     padding: ${SIZE(2)};
   }
 `;
