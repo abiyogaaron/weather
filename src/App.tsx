@@ -19,7 +19,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/:lat/:lon' element={<Home />} />
           <Route path='/:lat/:lon/:date' element={<Home />} />
-          <Route path='/forecast-list/:lat/:lon' element={<ForecastList />} />
+          <Route path='/forecasts/:lat/:lon' element={<ForecastList />} />
         </Routes>
       </Suspense>
     </DivApp>

@@ -302,7 +302,7 @@ const Home: FC = () => {
         <WeatherDetails>
           <WeatherDetailsHeader>
             <p className="current-weather">{WeatherTitle}</p>
-            <p className="details-weather" onClick={() => navigator(`/forecast-list/${latitude}/${longitude}`)}>
+            <p className="details-weather" onClick={() => navigator(`/forecasts/${latitude}/${longitude}`)}>
               5 days <FontAwesomeIcon icon={faChevronRight} />
             </p>
           </WeatherDetailsHeader>
