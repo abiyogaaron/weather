@@ -30,6 +30,7 @@ import {
   faLocationDot,
   faTemperatureHigh,
   faTemperatureLow,
+  faWarning,
   faWind,
 } from '@fortawesome/free-solid-svg-icons';
 import { 
@@ -62,6 +63,7 @@ import { formatDate, FormatTemp } from '../../Utils';
 
 import Image from '../../Components/Image';
 import Loader from '../../Components/Loader';
+import Popup from '../../Components/Popup';
 import { useGeolocation } from './hooks';
 
 const Home: FC = () => {
@@ -126,7 +128,8 @@ const Home: FC = () => {
   const isNextDisabled = currentIndex === totalPages - 1;
   const isUseGeo = !!(latParams && lonParams);
 
-  const [lat, lon] = useGeolocation(!isUseGeo);
+  const { lat, lon, geoError } = useGeolocation(!isUseGeo);
+  const [isPopupOpen, setIsPopupOpen] = useState<boolean>(geoError.isError);
 
   const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     clearTimeout(timeout.current);
@@ -337,11 +340,24 @@ const Home: FC = () => {
             )}
         </WeatherDetails>
         <DivOverlay 
-          isTyping={isSearchBoxfocus}
+          isOn={isSearchBoxfocus}
+        />
+        <Popup
+          isOpen={isPopupOpen}
+          title={geoError.title}
+          desc={geoError.desc}
+          icon={faWarning}
+          onClose={() => setIsPopupOpen(false) }
         />
       </DivWeatherWrapper>
     );
   };
+
+  useEffect(() => {
+    if (geoError.isError) {
+      setIsPopupOpen(true);
+    }
+  }, [geoError]);
 
   useEffect(() => {
     const latitudeParam = latParams ? latParams : lat.toString();

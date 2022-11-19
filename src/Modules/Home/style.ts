@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { COLOR, MOBILE_BREAKPOINT, SIZE } from '../../Constants/style';
 
 interface IDivOverlay {
-  isTyping: boolean;
+  isOn: boolean;
 }
 interface IDivWeatherCardActive {
   isActive: boolean;
@@ -124,7 +124,7 @@ export const DivWeatherInfo = styled.div`
 export const DivOverlay = styled.div<IDivOverlay>`
   @media (max-width: ${MOBILE_BREAKPOINT}px) {
     ${(p) => {
-    if (p.isTyping) {
+    if (p.isOn) {
       return (`
           position: absolute;
           min-height: 100vh;
