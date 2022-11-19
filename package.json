@@ -25,7 +25,7 @@
     "build:dev": "GENERATE_SOURCEMAP=true node -r dotenv/config ./node_modules/.bin/react-scripts build dotenv_config_path=.env.development",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --watchAll=false --verbose",
     "lint:fix": "eslint '*/**/*.{js,ts,tsx}' --fix",
     "lint": "eslint '*/**/*.{js,ts,tsx}'",
     "eject": "react-scripts eject",

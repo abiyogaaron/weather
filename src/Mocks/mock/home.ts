@@ -9,10 +9,10 @@ export const weatherResp: IForecastResponses = {
     {
       'dt': 1668826800,
       'main': {
-        'temp': 301.79,
+        'temp': 302.79,
         'feels_like': 305.27,
         'temp_min': 301.79,
-        'temp_max': 302.74,
+        'temp_max': 305.74,
         'pressure': 1004,
         'sea_level': 1004,
         'grnd_level': 1003,

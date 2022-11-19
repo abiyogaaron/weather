@@ -4,7 +4,7 @@ import { DivLoader } from './style';
 
 const Loader: FC = () => {
   return (
-    <DivLoader>
+    <DivLoader data-testid="app-loader">
       <svg width="34" height="12" viewBox="-1 0 33 12">
         <circle
           data-testid="circle-loader"

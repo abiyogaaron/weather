@@ -42,5 +42,7 @@ Runs the react app build with specific file `env.[staging-state]`
 ----------
 
 ## Route list
-- **/** => `Modules/Home/index.tsx` (Home)
-- **/forecasts** => `Modules/ForecastList/index.tsx` (list of driver)
+- **/** => `Modules/Home/index.tsx` (Current Forecast)
+- **/:lat/:lon** => `Modules/Home/index.tsx` (Current Forecast)
+- **/:lat/:lon/:date** => `Modules/Home/index.tsx` (Current Forecast)
+- **//forecasts/:lat/:lon** => `Modules/ForecastList/index.tsx` (5 days forecasts)

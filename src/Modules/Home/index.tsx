@@ -231,7 +231,7 @@ const Home: FC = () => {
 
   const renderingWeather = () => {
     return (
-      <DivWeatherWrapper>
+      <DivWeatherWrapper data-testid="weather-wrapper">
         <DivWeatherInfo>
           <DivWeatherTitle>
             <FontAwesomeIcon icon={faLocationDot} />
@@ -265,7 +265,7 @@ const Home: FC = () => {
           </DivDate>
           <Divider />
 
-          <DivRow>
+          <DivRow data-testid="weather-info-detail">
             <DivCol maxWidth={25}>
               <FontAwesomeIcon icon={faWind} size="2x" />
               <TextWrapper>
