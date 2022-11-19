@@ -45,4 +45,5 @@ export const ICON_LIST: Record<string, string> = {
   '50n': Mist,
 };
 
-export const FIVE_MINUTES = 1000 * 60 * 5 ;
+export const FIVE_MINUTES = 1000 * 60 * 5;
+export const USE_MOCK = true;

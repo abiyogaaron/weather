@@ -72,7 +72,7 @@ export interface IForecast {
     description: string;
     icon: string;
   }[];
-  cloud: {
+  clouds: {
     all: number;
   };
   wind: {
@@ -82,16 +82,16 @@ export interface IForecast {
   },
   visibility: number;
   pop: number;
-  rain: {
+  rain?: {
     '3h': number;
   };
   sys: {
-    pod: number;
+    pod: string;
   };
   dt_txt: string;
 }
 export interface IForecastResponses {
-  cod: number;
+  cod: string;
   message: number;
   cnt: number;
   list: IForecast[];
@@ -102,7 +102,7 @@ export interface IForecastResponses {
       lat: number;
       lon: number;
     };
-    country: number;
+    country: string;
     population: number;
     timezone: number;
     sunrise: number;

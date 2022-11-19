@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 
+import { ENV, USE_MOCK } from './Constants';
+
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 
@@ -11,16 +13,26 @@ import App from './App';
 
 import './index.css';
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement,
-);
-root.render(
-  <BrowserRouter>
-    <Provider store={Store}>
-      <App />
-    </Provider>
-  </BrowserRouter>,
-);
+(async () => {
+  if (ENV === 'development' && USE_MOCK) {
+    const { worker } = require('./Mocks/browser');
+    await worker.start({
+      onUnhandledRequest: 'bypass',
+      quiet: true,
+    });
+  }
+
+  const root = ReactDOM.createRoot(
+    document.getElementById('root') as HTMLElement,
+  );
+  root.render(
+    <BrowserRouter>
+      <Provider store={Store}>
+        <App />
+      </Provider>
+    </BrowserRouter>,
+  );  
+})();
 
 serviceWorkerRegistration.register();
 
