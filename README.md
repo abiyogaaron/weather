@@ -39,6 +39,10 @@ Runs the eslinter with autofixing
 
 Runs the react app build with specific file `env.[staging-state]`
 
+### `npm run test`
+
+Runs a script test using jest and react-testing-library
+
 ----------
 
 ## Route list
